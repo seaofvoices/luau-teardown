@@ -1,0 +1,27 @@
+{
+  "name": "teardown",
+  "version": "0.1.0",
+  "description": "A utility package to clean up resources",
+  "keywords": ["luau", "roblox", "clean", "destroy", "maid", "janitor"],
+  "author": "jeparlefrancais <jeparlefrancais21@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seaofvoices/luau-teardown.git"
+  },
+  "homepage": "https://github.com/seaofvoices/luau-teardown#readme",
+  "license": "MIT",
+  "main": "src/init.lua",
+  "scripts": {
+    "prepare": "npmluau",
+    "roblox-test": "sh ./scripts/roblox-test.sh",
+    "build-assets": "sh ./scripts/build-assets.sh",
+    "lint": "sh ./scripts/analyze.sh",
+    "format": "stylua .",
+    "style-check": "stylua . --check",
+    "clean": "rm -rf node_modules && rm -rf roblox"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "npmluau": "^0.1.0"
+  }
+}
