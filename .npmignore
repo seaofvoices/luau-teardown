@@ -6,6 +6,7 @@
 /build
 
 .gitattributes
+CHANGELOG.md
 
 .darklua*
 .luau-analyze.json
