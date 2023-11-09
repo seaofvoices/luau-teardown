@@ -1,4 +1,7 @@
-local jestGlobals = require('@pkg/jest-globals')
+-- todo: since jest-lua isn't publish on npm yet, the require won't work
+-- on CI. Wrapping `require` in parentheses makes the Luau type checker
+-- accept the require even if it can't resolve it.
+local jestGlobals = (require)('@pkg/jest-globals')
 local teardown = require('../teardown')
 
 local expect = jestGlobals.expect
