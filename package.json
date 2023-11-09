@@ -1,5 +1,5 @@
 {
-  "name": "teardown",
+  "name": "luau-teardown",
   "version": "0.1.0",
   "description": "A utility package to clean up resources",
   "keywords": ["luau", "roblox", "clean", "destroy", "maid", "janitor"],
