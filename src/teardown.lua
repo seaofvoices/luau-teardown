@@ -16,7 +16,7 @@ local function teardown(...: Teardown)
             for _, subElement in element do
                 teardown(subElement)
             end
-        elseif _G.ENV == 'roblox' and elementType == 'userdata' then
+        elseif _G.LUA_ENV == 'roblox' and elementType == 'userdata' then
             local typeofType = typeof(element)
             if typeofType == 'RBXScriptConnection' then
                 if not element.Connected then
