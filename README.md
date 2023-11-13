@@ -4,7 +4,7 @@ A utility package to clean up resources.
 
 # Installation
 
-Add `luau-teardown` in your dev-dependencies:
+Add `luau-teardown` in your dependencies:
 
 ```bash
 yarn add luau-teardown
