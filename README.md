@@ -1,3 +1,9 @@
+[![checks](https://github.com/seaofvoices/luau-teardown/actions/workflows/test.yml/badge.svg)](https://github.com/seaofvoices/luau-teardown/actions/workflows/test.yml)
+![version](https://img.shields.io/github/package-json/v/seaofvoices/luau-teardown)
+[![GitHub top language](https://img.shields.io/github/languages/top/seaofvoices/luau-teardown)](https://github.com/luau-lang/luau)
+![license](https://img.shields.io/npm/l/luau-teardown)
+![npm](https://img.shields.io/npm/dt/luau-teardown)
+
 # luau-teardown
 
 A utility package to clean up resources.
