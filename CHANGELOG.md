@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.1.2
+
 - fix bug with RBXScriptConnection not disconnecting ([#6](https://github.com/seaofvoices/luau-teardown/pull/6))
 
 ## 0.1.1
