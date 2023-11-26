@@ -41,7 +41,26 @@ if _G.LUA_ENV == 'roblox' then
 
         event:Fire()
 
-        expect(mock).never.toHaveBeenCalled(0)
+        task.wait()
+
+        expect(mock).never.toHaveBeenCalled()
+    end)
+
+    it('does not disconnect an already disconnected event connection', function()
+        local event = Instance.new('BindableEvent')
+
+        local mock, fnMock = jest.fn()
+
+        local connection = event.Event:Connect(fnMock) :: any
+
+        event:Fire()
+        task.wait()
+
+        connection:Disconnect()
+
+        teardown(connection)
+
+        expect(mock).toHaveBeenCalledTimes(1)
     end)
 end
 
