@@ -19,7 +19,7 @@ local function teardown(...: Teardown)
         elseif _G.LUA_ENV == 'roblox' and elementType == 'userdata' then
             local typeofType = typeof(element)
             if typeofType == 'RBXScriptConnection' then
-                if not element.Connected then
+                if element.Connected then
                     element:Disconnect()
                 end
             elseif typeofType == 'Instance' then
