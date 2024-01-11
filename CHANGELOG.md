@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.1.3
+
 - add `Teardown.fn` to create functions that teardown objects ([#9](https://github.com/seaofvoices/luau-teardown/pull/9))
 
 ## 0.1.2
