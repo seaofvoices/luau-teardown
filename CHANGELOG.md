@@ -1,5 +1,7 @@
 # Changelog
 
+- add `Teardown.fn` to create functions that teardown objects ([#9](https://github.com/seaofvoices/luau-teardown/pull/9))
+
 ## 0.1.2
 
 - fix bug with RBXScriptConnection not disconnecting ([#6](https://github.com/seaofvoices/luau-teardown/pull/6))
