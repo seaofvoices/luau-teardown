@@ -1,6 +1,7 @@
 local teardown = require('./teardown')
+local types = require('./types')
 
-type Teardown = teardown.Teardown
+type Teardown = types.Teardown
 
 local function join(...: Teardown): Teardown
     local packed = table.pack(...)

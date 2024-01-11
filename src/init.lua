@@ -1,18 +1,17 @@
 local TeardownFn = require('./types-teardown-fn')
+local createFn = require('./createFn')
+local join = require('./join')
+local teardown = require('./teardown')
+local types = require('./types')
 
 export type TeardownFn = TeardownFn.TeardownFn
 
-if _G.LUA_ENV == 'roblox' then
-    local types = require('./types-roblox')
-    export type Teardown = types.Teardown
-else
-    local types = require('./types')
-    export type Teardown = types.Teardown
-end
+export type Teardown = types.Teardown
 
 local Teardown = {
-    teardown = require('./teardown'),
-    join = require('./join'),
+    fn = createFn,
+    teardown = teardown,
+    join = join,
 }
 
 return Teardown
