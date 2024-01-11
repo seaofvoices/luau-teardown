@@ -1,7 +1,7 @@
 local typeof = require('./typeof')
 local types = require('./types')
 
-export type Teardown = types.Teardown
+type Teardown = types.Teardown
 
 local function teardown(...: Teardown)
     for i = 1, select('#', ...) do
