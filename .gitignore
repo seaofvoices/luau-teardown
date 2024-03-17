@@ -13,3 +13,5 @@
 /globalTypes.d.lua
 
 **/sourcemap.json
+
+.yarn

@@ -20,6 +20,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Enable corepack
+        run: corepack enable
+
       - uses: actions/setup-node@v3
         with:
           node-version: "latest"
@@ -27,10 +30,13 @@ jobs:
           cache-dependency-path: "yarn.lock"
 
       - name: Install packages
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --immutable
+          yarn prepare
 
       - name: Run linter
-        run: yarn run lint
+        # for now, only use selene because luau-lsp is not able to ignore the node_modules folder
+        run: yarn run lint:selene
 
       - name: Verify code style
         run: yarn run style-check

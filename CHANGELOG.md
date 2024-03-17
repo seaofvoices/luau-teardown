@@ -1,5 +1,7 @@
 # Changelog
 
+- add support to teardown thread values ([#12](https://github.com/seaofvoices/luau-teardown/pull/12))
+
 ## 0.1.3
 
 - add `Teardown.fn` to create functions that teardown objects ([#9](https://github.com/seaofvoices/luau-teardown/pull/9))
