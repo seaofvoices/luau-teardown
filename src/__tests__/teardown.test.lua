@@ -1,7 +1,7 @@
 -- todo: since jest-lua isn't publish on npm yet, the require won't work
 -- on CI. Wrapping `require` in parentheses makes the Luau type checker
 -- accept the require even if it can't resolve it.
-local jestGlobals = (require)('@pkg/jest-globals')
+local jestGlobals = require('@pkg/@jsdotlua/jest-globals')
 local teardown = require('../teardown')
 
 local expect = jestGlobals.expect
@@ -61,6 +61,18 @@ if _G.LUA_ENV == 'roblox' then
         teardown(connection)
 
         expect(mock).toHaveBeenCalledTimes(1)
+    end)
+
+    it('cancels a thread', function()
+        local switch = true
+        local thread = task.defer(function()
+            switch = false
+        end)
+
+        teardown(thread :: any)
+        task.wait()
+
+        expect(switch).toEqual(true)
     end)
 end
 
