@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.1.4
+
 - add support to teardown thread values ([#12](https://github.com/seaofvoices/luau-teardown/pull/12))
 
 ## 0.1.3
