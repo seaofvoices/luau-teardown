@@ -31,10 +31,11 @@ A `Teardown` object can be multiple things:
 - A function that takes no arguments and returns nothing (a value of type `() -> ()`)
 - An array of `Teardown` objects
 - a `nil` value
+- A `thread`, which is usually created using the [task library](https://create.roblox.com/docs/reference/engine/libraries/task)
 
 When the global `LUA_ENV` is equal to `"roblox"`, a `Teardown` object can also be:
 
-- An `RBXScriptConnection`, which is what returned by calling `Connect` on `Event`s
+- A `RBXScriptConnection`, which is what returned by calling `Connect` on `Event`s
 - An `Instance`
 
 This type is accessible by writing:
@@ -51,6 +52,7 @@ type Teardown = Teardown.Teardown
 The `teardown` function takes any amount of `Teardown` objects and cleans them:
 
 - For functions: calls the function
+- a `thread` value: calls `task.cancel` with the thread
 - For `RBXScriptConnection`: disconnects the connection
 - For `Instance`: calls `Destroy()` on the instance
 - An array of `Teardown` objects: teardowns all Teardown elements
@@ -88,4 +90,28 @@ local joined = Teardown.join(connections, interface, customCleanup)
 -- then, when we're ready we can clean connections, interface and
 -- customCleanup at the same time with
 Teardown.teardown(joined)
+```
+
+## `fn`
+
+Creates a function that will teardown all the given `Teardown` objects.
+
+```lua
+local cleanUp = Teardown.fn(connections, thread)
+
+-- ...
+
+cleanUp() -- teardown all the previously passed objects
+```
+
+This function can be useful with [React](https://github.com/jsdotlua/react-lua) `useEffect` hooks:
+
+```lua
+useEffect(function()
+	return Teardown.fn(
+		task.spawn(function()
+			-- ... do something
+		end)
+	)
+end)
 ```
