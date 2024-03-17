@@ -35,7 +35,8 @@ jobs:
           yarn prepare
 
       - name: Run linter
-        run: yarn run lint
+        # for now, only use selene because luau-lsp is not able to ignore the node_modules folder
+        run: yarn run lint:selene
 
       - name: Verify code style
         run: yarn run style-check
